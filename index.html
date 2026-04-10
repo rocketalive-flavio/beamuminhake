@@ -413,14 +413,22 @@
   }
 
   /* ── MAPA ESTRATÉGICO ── */
-  .mapa-section {
-    background: var(--color-surface-dark);
+  .mapa-subtitle {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 2.5vw, 2.6rem);
+    font-weight: 300;
+    color: var(--color-white);
+    letter-spacing: -0.8px;
+    margin-top: 5.6rem;
+    margin-bottom: 0;
+    text-align: center;
   }
   .mapa-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
-    margin-top: 5.6rem;
+    margin-top: 3.2rem;
+    margin-bottom: 5.6rem;
     counter-reset: nivel;
   }
   .mapa-card {
@@ -1230,11 +1238,13 @@
   </div>
 </section>
 
-<!-- SESSÃO 3 — MAPA ESTRATÉGICO -->
-<section class="mapa-section">
+<!-- SESSÃO 3 — ENTREGÁVEIS -->
+<section class="deliverables-section">
   <div class="container">
-    <div class="section-label">{ Os 3 níveis de contrato }</div>
-    <h2 class="section-title">Mapa Estratégico dos <em>Contratos</em></h2>
+    <div class="section-label">{ Tudo que você vai receber }</div>
+    <h2 class="section-title">O que você vai receber ao participar do <em>Workshop?</em></h2>
+
+    <h3 class="mapa-subtitle">Mapa Estratégico dos Contratos</h3>
     <div class="mapa-grid">
 
       <div class="mapa-card">
@@ -1262,14 +1272,7 @@
       </div>
 
     </div>
-  </div>
-</section>
 
-<!-- SESSÃO 4 — ENTREGÁVEIS -->
-<section class="deliverables-section">
-  <div class="container">
-    <div class="section-label">{ Tudo que você vai receber }</div>
-    <h2 class="section-title">O que você vai receber ao participar do <em>Workshop?</em></h2>
     <div class="deliverables-grid">
 
       <div class="deliv-card">
