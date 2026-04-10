@@ -411,11 +411,99 @@
     background: var(--color-black);
     text-align: center;
   }
+
+  /* Mapa Estratégico */
+  .mapa-estrategico {
+    margin-top: 5.6rem;
+    margin-bottom: 5.6rem;
+    text-align: left;
+  }
+  .mapa-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2.2rem, 3vw, 3rem);
+    font-weight: 300;
+    color: var(--color-white);
+    margin-bottom: 3.2rem;
+    letter-spacing: -1.2px;
+    text-align: center;
+  }
+  .mapa-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  .mapa-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 3.2rem 2.8rem;
+    position: relative;
+    transition: border-color 0.3s ease;
+  }
+  .mapa-card:hover {
+    border-color: rgba(193,153,106,0.3);
+  }
+  .mapa-card-level {
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.6rem;
+  }
+  .mapa-card-name {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--color-white);
+    margin-bottom: 2rem;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+  }
+  .mapa-card-detail {
+    font-size: 1.3rem;
+    color: var(--color-grey);
+    line-height: 1.65;
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .mapa-card-detail strong {
+    color: var(--color-light);
+    font-weight: 500;
+  }
+  .mapa-card-detail::before {
+    content: '';
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+    margin-top: 7px;
+  }
+  .mapa-card-result {
+    font-size: 1.35rem;
+    color: var(--color-light);
+    line-height: 1.65;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--glass-border);
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .mapa-card-result::before {
+    content: '→';
+    color: var(--gold-mid);
+    flex-shrink: 0;
+    font-weight: 600;
+  }
+
   .deliverables-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
-    margin-top: 5.6rem;
+    margin-top: 0;
   }
   .deliv-card {
     background: var(--gradient-dark);
@@ -904,6 +992,7 @@
     .offer-inner { grid-template-columns: 1fr; gap: 4rem; }
     .price-card { position: static; }
     .deliverables-grid { grid-template-columns: 1fr 1fr; }
+    .mapa-grid { grid-template-columns: 1fr; }
     .bio-inner { grid-template-columns: 1fr; gap: 3.2rem; }
   }
 
@@ -1050,7 +1139,7 @@
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-content">
-      <div class="hero-eyebrow">{ Workshop } <span>·</span> <span>25 de Abril · 9h às 17h</span> <span class="badge-live">AO VIVO</span></div>
+      <div class="hero-eyebrow">{ Workshop } <span>·</span> <span>25 de Abril · 8h30h às 13h30h</span> <span class="badge-live">AO VIVO</span></div>
       <h1 class="fade-in delay-1">
         Em 1 dia, eu vou te ensinar os 3 níveis de contratos que me tiraram do zero de faturamento para <em>6 dígitos</em> na advocacia consultiva.
       </h1>
@@ -1070,19 +1159,19 @@
   <div class="marquee-track">
     <div class="marquee-group">
       <span class="marquee-item">100% Ao Vivo</span>
-      <span class="marquee-item">8 horas de imersão</span>
+      <span class="marquee-item">5 horas de imersão</span>
       <span class="marquee-item">Prática real</span>
       <span class="marquee-item">Certificado incluso</span>
     </div>
     <div class="marquee-group">
       <span class="marquee-item">100% Ao Vivo</span>
-      <span class="marquee-item">8 horas de imersão</span>
+      <span class="marquee-item">5 horas de imersão</span>
       <span class="marquee-item">Prática real</span>
       <span class="marquee-item">Certificado incluso</span>
     </div>
     <div class="marquee-group">
       <span class="marquee-item">100% Ao Vivo</span>
-      <span class="marquee-item">8 horas de imersão</span>
+      <span class="marquee-item">5 horas de imersão</span>
       <span class="marquee-item">Prática real</span>
       <span class="marquee-item">Certificado incluso</span>
     </div>
@@ -1149,6 +1238,38 @@
   <div class="container">
     <div class="section-label">{ Tudo que você vai receber }</div>
     <h2 class="section-title">O que você vai receber ao participar do <em>Workshop?</em></h2>
+
+    <div class="mapa-estrategico">
+      <h3 class="mapa-title">Mapa Estratégico dos Contratos</h3>
+      <div class="mapa-grid">
+
+        <div class="mapa-card">
+          <div class="mapa-card-level">Nível 1</div>
+          <div class="mapa-card-name">Básico</div>
+          <div class="mapa-card-detail">Para quem está começando ou quer estruturar o mínimo obrigatório</div>
+          <div class="mapa-card-detail"><strong>Tipo de cliente ideal:</strong> prestadores de serviço em início de relação, projetos de escopo fixo</div>
+          <div class="mapa-card-result">Você nunca mais fecha um cliente sem proteção jurídica real e o cliente entende exatamente o que está contratando</div>
+        </div>
+
+        <div class="mapa-card">
+          <div class="mapa-card-level">Nível 2</div>
+          <div class="mapa-card-name">Intermediário</div>
+          <div class="mapa-card-detail">Para quem atende relações contínuas ou de escopo variável</div>
+          <div class="mapa-card-detail"><strong>Tipo de cliente ideal:</strong> empresas e profissionais com demandas recorrentes</div>
+          <div class="mapa-card-result">Você passa a cobrar pelo risco real que está assumindo, não pelo número de horas trabalhadas</div>
+        </div>
+
+        <div class="mapa-card">
+          <div class="mapa-card-level">Nível 3</div>
+          <div class="mapa-card-name">Avançado</div>
+          <div class="mapa-card-detail">Para quem quer atuar com advocacia consultiva de alto padrão</div>
+          <div class="mapa-card-detail"><strong>Tipo de cliente ideal:</strong> negócios em crescimento, contratos de alto valor</div>
+          <div class="mapa-card-result">Sua advocacia se posiciona como consultiva e estratégica e esse contrato se torna o argumento mais sólido para honorários de 6 dígitos</div>
+        </div>
+
+      </div>
+    </div>
+
     <div class="deliverables-grid">
 
       <div class="deliv-card">
@@ -1189,7 +1310,7 @@
       </div>
 
       <div class="deliv-card featured">
-        <img class="deliv-img" src="certificado.png" alt="Certificado" style="filter:none;">
+        <img class="deliv-img" src="certificado-2.jpg" alt="Certificado" style="filter:none;">
         <div class="deliv-body">
           <div class="deliv-tag">Bônus</div>
           <h3>Certificado de participação</h3>
@@ -1293,9 +1414,9 @@
       <div>
         <div class="section-label">{ Garanta sua vaga }</div>
         <h2 class="section-title">Workshop Contratos<br>Estratégicos na <em>Prática</em></h2>
-        <p style="color: var(--color-grey); font-size: 1.5rem; margin-top: 1.6rem; line-height: 1.7;">25 de Abril · 9h às 17h · Ao Vivo</p>
+        <p style="color: var(--color-grey); font-size: 1.5rem; margin-top: 1.6rem; line-height: 1.7;">25 de Abril · 8h30h às 13h30h · Ao Vivo</p>
         <ul class="offer-items">
-          <li>8 horas de imersão técnica ao vivo</li>
+          <li>5 horas de imersão técnica ao vivo</li>
           <li>3 níveis de contratos, do básico ao avançado</li>
           <li>Diagnóstico da sua advocacia + relatório</li>
           <li>Checklist de qualificação de clientes</li>
@@ -1347,7 +1468,7 @@
           <span class="faq-icon">+</span>
         </button>
         <div class="faq-answer">
-          <div class="faq-answer-inner">O Workshop acontece no dia 25 de abril (sábado), das 9h às 17h, 100% ao vivo e online. Você participa de onde estiver, só precisa de internet.</div>
+          <div class="faq-answer-inner">O Workshop acontece no dia 25 de abril (sábado), das 8h30h às 13h30h, 100% ao vivo e online. Você participa de onde estiver, só precisa de internet.</div>
         </div>
       </div>
 
