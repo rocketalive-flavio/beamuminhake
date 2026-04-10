@@ -828,6 +828,47 @@
   }
   .guarantee strong { color: var(--color-light); }
 
+  /* ── QUAL MOBILE ── */
+  .qual-mobile { display: none; }
+  .qual-block {
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+  }
+  .qual-block-label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 1.4rem 2rem;
+    text-align: center;
+  }
+  .qual-block-label.yes {
+    background: rgba(193,153,106,0.12);
+    color: var(--gold-mid);
+    border-bottom: 1px solid rgba(193,153,106,0.25);
+  }
+  .qual-block-label.no {
+    background: rgba(162,186,200,0.06);
+    color: var(--color-grey);
+    border-bottom: 1px solid rgba(162,186,200,0.12);
+  }
+  .qual-block-item {
+    padding: 1.4rem 2rem;
+    font-size: 1.35rem;
+    line-height: 1.55;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.2rem;
+    border-bottom: 1px solid var(--glass-border);
+  }
+  .qual-block-item:last-child { border-bottom: none; }
+  .qual-block.yes .qual-block-item { background: rgba(193,153,106,0.03); color: var(--color-light); }
+  .qual-block.no .qual-block-item { background: rgba(162,186,200,0.02); color: var(--color-grey); }
+  .qual-block.yes .qual-dot { background: var(--gold); }
+  .qual-block.no .qual-dot { background: var(--color-grey); opacity: 0.35; }
+
   /* ── FOOTER ── */
   footer {
     background: var(--color-black);
@@ -870,12 +911,13 @@
     section { padding: 6.4rem 2rem; }
 
     /* Header */
-    .site-header { padding: 0 1.6rem; height: 5.4rem; }
+    .site-header { padding: 0 1.6rem; height: 5.4rem; justify-content: center; }
+    .header-left { justify-content: center; width: 100%; }
     .urgency-text { font-size: 1rem; }
     .urgency-text strong { display: inline; }
     .urgency-track { width: 6rem; }
     .urgency-pct { display: none; }
-    .nav-cta { padding: 0.7rem 1.4rem; font-size: 1.1rem; }
+    .nav-cta { display: none; }
 
     /* Hero */
     .hero { padding: 6rem 2rem 0; min-height: auto; }
@@ -931,11 +973,8 @@
     .deliv-img { height: 16rem; }
 
     /* Qualificação */
-    .qual-header, .qual-table { grid-template-columns: 1fr; }
-    .qual-col.yes { border-right: none; border-bottom: 1px solid var(--glass-border); }
-    .qual-col-label { font-size: 1rem; padding: 1rem 1.6rem; }
-    .qual-row { padding: 1.4rem 1.6rem; font-size: 1.3rem; }
-    .qual-header { margin-top: 3.2rem; }
+    .qual-desktop { display: none; }
+    .qual-mobile { display: block; margin-top: 3.2rem; }
 
     /* Bio */
     .bio-photo-placeholder { aspect-ratio: 4/3; }
@@ -1157,22 +1196,44 @@
   <div class="container">
     <div class="section-label">{ Antes de garantir sua vaga }</div>
     <h2 class="section-title">Veja se o Workshop <em>é para você</em></h2>
-    <div class="qual-header">
-      <div class="qual-col-label yes">É para você se...</div>
-      <div class="qual-col-label no">Não é para você se...</div>
-    </div>
-    <div class="qual-table">
-      <div class="qual-col yes">
-        <div class="qual-row"><span class="qual-dot"></span>Você já atende ou quer atender como advogada, mas sente insegurança na hora de estruturar contratos.</div>
-        <div class="qual-row"><span class="qual-dot"></span>Você quer cobrar mais pelos seus contratos e precisa de uma lógica técnica que sustente esse posicionamento.</div>
-        <div class="qual-row"><span class="qual-dot"></span>Você quer atuar com advocacia consultiva, sem depender de urgência, contencioso ou volume de causas.</div>
-        <div class="qual-row"><span class="qual-dot"></span>Você quer sair do workshop com método claro para replicar em qualquer cliente.</div>
+
+    <!-- Desktop: tabela lado a lado -->
+    <div class="qual-desktop">
+      <div class="qual-header">
+        <div class="qual-col-label yes">É para você se...</div>
+        <div class="qual-col-label no">Não é para você se...</div>
       </div>
-      <div class="qual-col no">
-        <div class="qual-row"><span class="qual-dot"></span>Você não tem interesse em atuar com contratos no portfólio jurídico.</div>
-        <div class="qual-row"><span class="qual-dot"></span>Você prefere continuar usando modelos genéricos e não se importa se eles protegem de verdade ou não.</div>
-        <div class="qual-row"><span class="qual-dot"></span>Você espera um conteúdo puramente teórico, sem aplicação prática ao longo do encontro.</div>
-        <div class="qual-row"><span class="qual-dot"></span>Você não está disposta a estruturar sua advocacia com método e visão de negócio.</div>
+      <div class="qual-table">
+        <div class="qual-col yes">
+          <div class="qual-row"><span class="qual-dot"></span>Você já atende ou quer atender como advogada, mas sente insegurança na hora de estruturar contratos.</div>
+          <div class="qual-row"><span class="qual-dot"></span>Você quer cobrar mais pelos seus contratos e precisa de uma lógica técnica que sustente esse posicionamento.</div>
+          <div class="qual-row"><span class="qual-dot"></span>Você quer atuar com advocacia consultiva, sem depender de urgência, contencioso ou volume de causas.</div>
+          <div class="qual-row"><span class="qual-dot"></span>Você quer sair do workshop com método claro para replicar em qualquer cliente.</div>
+        </div>
+        <div class="qual-col no">
+          <div class="qual-row"><span class="qual-dot"></span>Você não tem interesse em atuar com contratos no portfólio jurídico.</div>
+          <div class="qual-row"><span class="qual-dot"></span>Você prefere continuar usando modelos genéricos e não se importa se eles protegem de verdade ou não.</div>
+          <div class="qual-row"><span class="qual-dot"></span>Você espera um conteúdo puramente teórico, sem aplicação prática ao longo do encontro.</div>
+          <div class="qual-row"><span class="qual-dot"></span>Você não está disposta a estruturar sua advocacia com método e visão de negócio.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile: blocos empilhados -->
+    <div class="qual-mobile">
+      <div class="qual-block yes">
+        <div class="qual-block-label yes">É para você se...</div>
+        <div class="qual-block-item"><span class="qual-dot"></span>Você já atende ou quer atender como advogada, mas sente insegurança na hora de estruturar contratos.</div>
+        <div class="qual-block-item"><span class="qual-dot"></span>Você quer cobrar mais pelos seus contratos e precisa de uma lógica técnica que sustente esse posicionamento.</div>
+        <div class="qual-block-item"><span class="qual-dot"></span>Você quer atuar com advocacia consultiva, sem depender de urgência, contencioso ou volume de causas.</div>
+        <div class="qual-block-item"><span class="qual-dot"></span>Você quer sair do workshop com método claro para replicar em qualquer cliente.</div>
+      </div>
+      <div class="qual-block no">
+        <div class="qual-block-label no">Não é para você se...</div>
+        <div class="qual-block-item"><span class="qual-dot"></span>Você não tem interesse em atuar com contratos no portfólio jurídico.</div>
+        <div class="qual-block-item"><span class="qual-dot"></span>Você prefere continuar usando modelos genéricos e não se importa se eles protegem de verdade ou não.</div>
+        <div class="qual-block-item"><span class="qual-dot"></span>Você espera um conteúdo puramente teórico, sem aplicação prática ao longo do encontro.</div>
+        <div class="qual-block-item"><span class="qual-dot"></span>Você não está disposta a estruturar sua advocacia com método e visão de negócio.</div>
       </div>
     </div>
   </div>
