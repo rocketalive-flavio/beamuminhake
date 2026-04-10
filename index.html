@@ -409,161 +409,141 @@
   /* ── ENTREGÁVEIS ── */
   .deliverables-section {
     background: var(--color-black);
-    text-align: center;
+  }
+  .deliv-intro {
+    max-width: 64rem;
+    margin-bottom: 6.4rem;
   }
 
-  /* ── MAPA ESTRATÉGICO ── */
-  .mapa-subtitle {
-    font-family: var(--font-heading);
-    font-size: clamp(2rem, 2.5vw, 2.6rem);
-    font-weight: 300;
-    color: var(--color-white);
-    letter-spacing: -0.8px;
-    margin-top: 5.6rem;
-    margin-bottom: 0;
-    text-align: center;
-  }
-  .mapa-grid {
+  /* Timeline dos 3 Níveis */
+  .timeline {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin-top: 3.2rem;
-    margin-bottom: 5.6rem;
-    counter-reset: nivel;
-  }
-  .mapa-card {
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    border-radius: 20px;
-    padding: 3.2rem 2.8rem;
+    gap: 0;
+    margin-bottom: 8rem;
     position: relative;
-    transition: border-color 0.3s ease;
-    counter-increment: nivel;
   }
-  .mapa-card:hover {
-    border-color: rgba(193,153,106,0.3);
-  }
-  .mapa-card-level {
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 0.4rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-  .mapa-card-level::after {
+  .timeline::before {
     content: '';
-    flex: 1;
+    position: absolute;
+    top: 3.2rem;
+    left: 8%;
+    right: 8%;
     height: 1px;
-    background: rgba(193,153,106,0.2);
+    background: linear-gradient(90deg, rgba(193,153,106,0.1), rgba(193,153,106,0.4), rgba(193,153,106,0.1));
   }
-  .mapa-card-name {
+  .timeline-step {
+    text-align: center;
+    padding: 0 2rem;
+    position: relative;
+  }
+  .timeline-dot {
+    width: 6.4rem; height: 6.4rem;
+    border-radius: 50%;
+    background: rgba(193,153,106,0.08);
+    border: 1px solid rgba(193,153,106,0.25);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 2.4rem;
+    position: relative;
+    z-index: 1;
+  }
+  .timeline-dot-num {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: var(--gold-mid);
+  }
+  .timeline-name {
     font-family: var(--font-heading);
     font-size: 2.2rem;
     font-weight: 400;
     color: var(--color-white);
-    margin-bottom: 2.4rem;
+    margin-bottom: 1.2rem;
     letter-spacing: -0.5px;
-    line-height: 1.2;
   }
-  .mapa-card-for {
+  .timeline-for {
     font-size: 1.35rem;
-    color: var(--color-white);
-    font-weight: 400;
-    line-height: 1.55;
+    color: var(--color-light);
+    line-height: 1.6;
     margin-bottom: 1.6rem;
   }
-  .mapa-card-detail {
-    font-size: 1.25rem;
+  .timeline-client {
+    font-size: 1.2rem;
     color: var(--color-grey);
-    line-height: 1.65;
-    margin-bottom: 0.8rem;
-    padding-left: 1.6rem;
-    position: relative;
+    line-height: 1.6;
+    margin-bottom: 2rem;
   }
-  .mapa-card-detail::before {
-    content: '';
-    width: 4px; height: 4px;
-    border-radius: 50%;
-    background: var(--gold);
-    position: absolute;
-    left: 0;
-    top: 8px;
-  }
-  .mapa-card-result {
-    font-size: 1.3rem;
+  .timeline-result {
+    font-size: 1.25rem;
     color: var(--gold-mid);
-    line-height: 1.65;
-    margin-top: 2.4rem;
-    padding: 2rem;
-    background: rgba(193,153,106,0.06);
-    border-radius: 12px;
+    line-height: 1.6;
+    padding: 1.6rem;
+    background: rgba(193,153,106,0.05);
     border: 1px solid rgba(193,153,106,0.12);
+    border-radius: 12px;
+    text-align: left;
   }
 
+  /* Divisor visual */
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 2.4rem;
+    margin-bottom: 5.6rem;
+  }
+  .section-divider::before,
+  .section-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(193,153,106,0.25), transparent);
+  }
+  .section-divider-text {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    white-space: nowrap;
+  }
+
+  /* Cards de entregáveis */
   .deliverables-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
-    margin-top: 5.6rem;
   }
   .deliv-card {
-    background: var(--gradient-dark);
+    background: var(--glass-bg);
     border: 1px solid var(--glass-border);
-    border-radius: 24px;
-    padding: 0 0 3.6rem;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    transition: border-color 0.3s ease, transform 0.3s ease;
+    border-radius: 20px;
+    padding: 3.2rem 2.4rem;
+    text-align: left;
+    transition: border-color 0.3s ease;
   }
   .deliv-card:hover {
     border-color: rgba(193,153,106,0.3);
-    transform: translateY(-4px);
   }
-  .deliv-card.featured {
-    border-color: rgba(193,153,106,0.35);
-  }
-  .deliv-img {
-    width: 100%;
-    height: 18rem;
-    object-fit: cover;
-    display: block;
-    filter: sepia(25%) saturate(70%) brightness(75%) contrast(110%);
-    transition: filter 0.4s ease;
-  }
-  .deliv-card:hover .deliv-img {
-    filter: sepia(10%) saturate(80%) brightness(85%) contrast(105%);
-  }
-  .deliv-body {
-    padding: 2.4rem 2.8rem 0;
-  }
-  .deliv-tag {
-    display: inline-block;
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--gold);
-    background: rgba(193,153,106,0.1);
-    padding: 0.4rem 1.2rem;
-    border-radius: 34px;
+  .deliv-card-icon {
+    width: 4.8rem; height: 4.8rem;
+    border-radius: 12px;
+    background: rgba(193,153,106,0.08);
+    border: 1px solid rgba(193,153,106,0.2);
+    display: flex; align-items: center; justify-content: center;
     margin-bottom: 2rem;
+    color: var(--gold);
   }
   .deliv-card h3 {
     font-family: var(--font-heading);
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 400;
     color: var(--color-white);
-    margin-bottom: 1.4rem;
+    margin-bottom: 1.2rem;
     line-height: 1.3;
-    letter-spacing: -0.5px;
+    letter-spacing: -0.3px;
   }
   .deliv-card p {
-    font-size: 1.35rem;
+    font-size: 1.3rem;
     color: var(--color-grey);
     line-height: 1.7;
   }
@@ -997,7 +977,8 @@
     .offer-inner { grid-template-columns: 1fr; gap: 4rem; }
     .price-card { position: static; }
     .deliverables-grid { grid-template-columns: 1fr 1fr; }
-    .mapa-grid { grid-template-columns: 1fr; }
+    .timeline { grid-template-columns: 1fr; gap: 4rem; }
+    .timeline::before { display: none; }
     .bio-inner { grid-template-columns: 1fr; gap: 3.2rem; }
   }
 
@@ -1062,10 +1043,10 @@
     .cap-desc { font-size: 1.3rem; }
 
     /* Entregáveis */
-    .deliverables-grid { grid-template-columns: 1fr; gap: 2.4rem; }
-    .deliv-card h3 { font-size: 1.8rem; }
-    .deliv-card p { font-size: 1.3rem; }
-    .deliv-img { height: 16rem; }
+    .deliverables-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .deliv-card { padding: 2.4rem 2rem; }
+    .timeline-name { font-size: 2rem; }
+    .timeline-result { font-size: 1.2rem; }
 
     /* Qualificação */
     .qual-desktop { display: none; }
@@ -1241,87 +1222,71 @@
 <!-- SESSÃO 3 — ENTREGÁVEIS -->
 <section class="deliverables-section">
   <div class="container">
-    <div class="section-label">{ Tudo que você vai receber }</div>
-    <h2 class="section-title">O que você vai receber ao participar do <em>Workshop?</em></h2>
+    <div class="section-label">{ O que você vai receber }</div>
+    <h2 class="section-title">Tudo que está incluso no <em>Workshop</em></h2>
 
-    <h3 class="mapa-subtitle">Mapa Estratégico dos Contratos</h3>
-    <div class="mapa-grid">
-
-      <div class="mapa-card">
-        <div class="mapa-card-level">Nível 1</div>
-        <div class="mapa-card-name">Básico</div>
-        <div class="mapa-card-for">Para quem está começando ou quer estruturar o mínimo obrigatório</div>
-        <div class="mapa-card-detail"><strong>Cliente ideal:</strong> prestadores de serviço em início de relação, projetos de escopo fixo</div>
-        <div class="mapa-card-result">Você nunca mais fecha um cliente sem proteção jurídica real e o cliente entende exatamente o que está contratando</div>
+    <!-- Timeline dos 3 níveis -->
+    <div class="timeline">
+      <div class="timeline-step">
+        <div class="timeline-dot"><span class="timeline-dot-num">1</span></div>
+        <div class="timeline-name">Básico</div>
+        <div class="timeline-for">Para quem está começando ou quer estruturar o mínimo obrigatório</div>
+        <div class="timeline-client">Cliente ideal: prestadores de serviço em início de relação, projetos de escopo fixo</div>
+        <div class="timeline-result">Você nunca mais fecha um cliente sem proteção jurídica real e o cliente entende exatamente o que está contratando</div>
       </div>
-
-      <div class="mapa-card">
-        <div class="mapa-card-level">Nível 2</div>
-        <div class="mapa-card-name">Intermediário</div>
-        <div class="mapa-card-for">Para quem atende relações contínuas ou de escopo variável</div>
-        <div class="mapa-card-detail"><strong>Cliente ideal:</strong> empresas e profissionais com demandas recorrentes</div>
-        <div class="mapa-card-result">Você passa a cobrar pelo risco real que está assumindo, não pelo número de horas trabalhadas</div>
+      <div class="timeline-step">
+        <div class="timeline-dot"><span class="timeline-dot-num">2</span></div>
+        <div class="timeline-name">Intermediário</div>
+        <div class="timeline-for">Para quem atende relações contínuas ou de escopo variável</div>
+        <div class="timeline-client">Cliente ideal: empresas e profissionais com demandas recorrentes</div>
+        <div class="timeline-result">Você passa a cobrar pelo risco real que está assumindo, não pelo número de horas trabalhadas</div>
       </div>
-
-      <div class="mapa-card">
-        <div class="mapa-card-level">Nível 3</div>
-        <div class="mapa-card-name">Avançado</div>
-        <div class="mapa-card-for">Para quem quer atuar com advocacia consultiva de alto padrão</div>
-        <div class="mapa-card-detail"><strong>Cliente ideal:</strong> negócios em crescimento, contratos de alto valor</div>
-        <div class="mapa-card-result">Sua advocacia se posiciona como consultiva e estratégica e esse contrato se torna o argumento mais sólido para honorários de 6 dígitos</div>
+      <div class="timeline-step">
+        <div class="timeline-dot"><span class="timeline-dot-num">3</span></div>
+        <div class="timeline-name">Avançado</div>
+        <div class="timeline-for">Para quem quer atuar com advocacia consultiva de alto padrão</div>
+        <div class="timeline-client">Cliente ideal: negócios em crescimento, contratos de alto valor</div>
+        <div class="timeline-result">Sua advocacia se posiciona como consultiva e estratégica e esse contrato se torna o argumento mais sólido para honorários de 6 dígitos</div>
       </div>
-
     </div>
 
+    <!-- Divisor -->
+    <div class="section-divider">
+      <span class="section-divider-text">+ Materiais inclusos</span>
+    </div>
+
+    <!-- Cards de entregáveis -->
     <div class="deliverables-grid">
-
       <div class="deliv-card">
-        <div class="deliv-img" style="display:flex;align-items:center;justify-content:center;background:var(--color-black);height:18rem;">
-          <svg viewBox="0 0 260 220" width="200" xmlns="http://www.w3.org/2000/svg">
-            <text x="130" y="18" text-anchor="middle" fill="#CCCAC6" font-family="Inter,sans-serif" font-size="11" font-weight="400">Diagnóstico</text>
-            <text x="30" y="210" text-anchor="middle" fill="#CCCAC6" font-family="Inter,sans-serif" font-size="11" font-weight="400">Posicionamento</text>
-            <text x="230" y="210" text-anchor="middle" fill="#CCCAC6" font-family="Inter,sans-serif" font-size="11" font-weight="400">Contratos</text>
-            <polygon points="130,35 30,190 230,190" fill="rgba(193,153,106,0.08)" stroke="#C1996A" stroke-width="1.5"/>
-            <circle cx="130" cy="35" r="5" fill="#D7BD8B"/>
-            <circle cx="30" cy="190" r="5" fill="#8A93A3"/>
-            <circle cx="230" cy="190" r="5" fill="#DCC68D"/>
-          </svg>
+        <div class="deliv-card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
         </div>
-        <div class="deliv-body">
-          <div class="deliv-tag">Incluso</div>
-          <h3>Diagnóstico completo da sua advocacia</h3>
-          <p>Uma ferramenta prática para você mapear onde está hoje, identificar onde está deixando dinheiro na mesa e entender o que precisa ajustar.</p>
-        </div>
+        <h3>Diagnóstico completo da sua advocacia</h3>
+        <p>Uma ferramenta prática para mapear onde você está, identificar onde está deixando dinheiro na mesa e entender o que precisa ajustar.</p>
       </div>
-
       <div class="deliv-card">
-        <img class="deliv-img" src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=600&h=400&fit=crop&crop=center" alt="Checklist">
-        <div class="deliv-body">
-          <div class="deliv-tag">Incluso</div>
-          <h3>Checklist dos melhores clientes por nível de contrato</h3>
-          <p>Saiba exatamente qual perfil de cliente faz sentido para cada nível de complexidade contratual. Pare de subprecificar seu trabalho.</p>
+        <div class="deliv-card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
         </div>
+        <h3>Checklist dos melhores clientes por nível de contrato</h3>
+        <p>Saiba qual perfil de cliente faz sentido para cada nível de complexidade contratual. Pare de subprecificar seu trabalho.</p>
       </div>
-
       <div class="deliv-card">
-        <img class="deliv-img" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop&crop=center" alt="Prospecção">
-        <div class="deliv-body">
-          <div class="deliv-tag">Incluso</div>
-          <h3>Guia de prospecção: conquiste seu primeiro cliente em 30 dias</h3>
-          <p>Um roteiro direto com estratégia de captação ativa, incluindo abordagem, canais e posicionamento para seu primeiro cliente consultivo.</p>
+        <div class="deliv-card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
         </div>
+        <h3>Guia de prospecção: 1o cliente em 30 dias</h3>
+        <p>Roteiro com estratégia de captação ativa, abordagem, canais e posicionamento para seu primeiro cliente consultivo.</p>
       </div>
-
-      <div class="deliv-card featured">
-        <img class="deliv-img" src="certificado-2.jpg" alt="Certificado" style="filter:none;">
-        <div class="deliv-body">
-          <div class="deliv-tag">Bônus</div>
-          <h3>Certificado de participação</h3>
-          <p>Comprova sua presença em uma imersão técnica prática sobre elaboração estratégica de contratos. Um diferencial real pro seu portfólio.</p>
+      <div class="deliv-card">
+        <div class="deliv-card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
         </div>
+        <h3>Certificado de participação</h3>
+        <p>Comprova sua presença em uma imersão técnica prática sobre elaboração estratégica de contratos. Um diferencial real pro seu portfólio.</p>
       </div>
-
     </div>
+
     <div style="text-align:center; margin-top: 4.8rem;">
       <a href="#oferta" class="btn-primary">Comprar ingresso · Lote 0</a>
     </div>
