@@ -514,36 +514,59 @@
     gap: 2rem;
   }
   .deliv-card {
-    background: var(--glass-bg);
+    background: var(--gradient-dark);
     border: 1px solid var(--glass-border);
-    border-radius: 20px;
-    padding: 3.2rem 2.4rem;
-    text-align: left;
-    transition: border-color 0.3s ease;
+    border-radius: 24px;
+    padding: 0 0 3.6rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s ease, transform 0.3s ease;
   }
   .deliv-card:hover {
     border-color: rgba(193,153,106,0.3);
+    transform: translateY(-4px);
   }
-  .deliv-card-icon {
-    width: 4.8rem; height: 4.8rem;
-    border-radius: 12px;
-    background: rgba(193,153,106,0.08);
-    border: 1px solid rgba(193,153,106,0.2);
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 2rem;
+  .deliv-card.featured {
+    border-color: rgba(193,153,106,0.35);
+  }
+  .deliv-img {
+    width: 100%;
+    height: 18rem;
+    object-fit: cover;
+    display: block;
+    filter: sepia(25%) saturate(70%) brightness(75%) contrast(110%);
+    transition: filter 0.4s ease;
+  }
+  .deliv-card:hover .deliv-img {
+    filter: sepia(10%) saturate(80%) brightness(85%) contrast(105%);
+  }
+  .deliv-body {
+    padding: 2.4rem 2.8rem 0;
+  }
+  .deliv-tag {
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
     color: var(--gold);
+    background: rgba(193,153,106,0.1);
+    padding: 0.4rem 1.2rem;
+    border-radius: 34px;
+    margin-bottom: 2rem;
   }
   .deliv-card h3 {
     font-family: var(--font-heading);
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight: 400;
     color: var(--color-white);
-    margin-bottom: 1.2rem;
+    margin-bottom: 1.4rem;
     line-height: 1.3;
-    letter-spacing: -0.3px;
+    letter-spacing: -0.5px;
   }
   .deliv-card p {
-    font-size: 1.3rem;
+    font-size: 1.35rem;
     color: var(--color-grey);
     line-height: 1.7;
   }
@@ -1043,8 +1066,10 @@
     .cap-desc { font-size: 1.3rem; }
 
     /* Entregáveis */
-    .deliverables-grid { grid-template-columns: 1fr; gap: 2rem; }
-    .deliv-card { padding: 2.4rem 2rem; }
+    .deliverables-grid { grid-template-columns: 1fr; gap: 2.4rem; }
+    .deliv-card h3 { font-size: 1.8rem; }
+    .deliv-card p { font-size: 1.3rem; }
+    .deliv-img { height: 16rem; }
     .timeline-name { font-size: 2rem; }
     .timeline-result { font-size: 1.2rem; }
 
@@ -1258,32 +1283,49 @@
     <!-- Cards de entregáveis -->
     <div class="deliverables-grid">
       <div class="deliv-card">
-        <div class="deliv-card-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <div class="deliv-img" style="display:flex;align-items:center;justify-content:center;background:var(--color-black);height:18rem;">
+          <svg viewBox="0 0 260 220" width="200" xmlns="http://www.w3.org/2000/svg">
+            <text x="130" y="18" text-anchor="middle" fill="#CCCAC6" font-family="Inter,sans-serif" font-size="11" font-weight="400">Diagnóstico</text>
+            <text x="30" y="210" text-anchor="middle" fill="#CCCAC6" font-family="Inter,sans-serif" font-size="11" font-weight="400">Posicionamento</text>
+            <text x="230" y="210" text-anchor="middle" fill="#CCCAC6" font-family="Inter,sans-serif" font-size="11" font-weight="400">Contratos</text>
+            <polygon points="130,35 30,190 230,190" fill="rgba(193,153,106,0.08)" stroke="#C1996A" stroke-width="1.5"/>
+            <circle cx="130" cy="35" r="5" fill="#D7BD8B"/>
+            <circle cx="30" cy="190" r="5" fill="#8A93A3"/>
+            <circle cx="230" cy="190" r="5" fill="#DCC68D"/>
+          </svg>
         </div>
-        <h3>Diagnóstico completo da sua advocacia</h3>
-        <p>Uma ferramenta prática para mapear onde você está, identificar onde está deixando dinheiro na mesa e entender o que precisa ajustar.</p>
+        <div class="deliv-body">
+          <div class="deliv-tag">Incluso</div>
+          <h3>Diagnóstico completo da sua advocacia</h3>
+          <p>Uma ferramenta prática para mapear onde você está, identificar onde está deixando dinheiro na mesa e entender o que precisa ajustar.</p>
+        </div>
       </div>
+
       <div class="deliv-card">
-        <div class="deliv-card-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        <img class="deliv-img" src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=600&h=400&fit=crop&crop=center" alt="Checklist">
+        <div class="deliv-body">
+          <div class="deliv-tag">Incluso</div>
+          <h3>Checklist dos melhores clientes por nível de contrato</h3>
+          <p>Saiba qual perfil de cliente faz sentido para cada nível de complexidade contratual. Pare de subprecificar seu trabalho.</p>
         </div>
-        <h3>Checklist dos melhores clientes por nível de contrato</h3>
-        <p>Saiba qual perfil de cliente faz sentido para cada nível de complexidade contratual. Pare de subprecificar seu trabalho.</p>
       </div>
+
       <div class="deliv-card">
-        <div class="deliv-card-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+        <img class="deliv-img" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop&crop=center" alt="Prospecção">
+        <div class="deliv-body">
+          <div class="deliv-tag">Incluso</div>
+          <h3>Guia de prospecção: conquiste seu primeiro cliente em 30 dias</h3>
+          <p>Um roteiro direto com estratégia de captação ativa, incluindo abordagem, canais e posicionamento para seu primeiro cliente consultivo.</p>
         </div>
-        <h3>Guia de prospecção: 1o cliente em 30 dias</h3>
-        <p>Roteiro com estratégia de captação ativa, abordagem, canais e posicionamento para seu primeiro cliente consultivo.</p>
       </div>
-      <div class="deliv-card">
-        <div class="deliv-card-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+
+      <div class="deliv-card featured">
+        <img class="deliv-img" src="certificado.png" alt="Certificado" style="filter:none;">
+        <div class="deliv-body">
+          <div class="deliv-tag">Bônus</div>
+          <h3>Certificado de participação</h3>
+          <p>Comprova sua presença em uma imersão técnica prática sobre elaboração estratégica de contratos. Um diferencial real pro seu portfólio.</p>
         </div>
-        <h3>Certificado de participação</h3>
-        <p>Comprova sua presença em uma imersão técnica prática sobre elaboração estratégica de contratos. Um diferencial real pro seu portfólio.</p>
       </div>
     </div>
 
