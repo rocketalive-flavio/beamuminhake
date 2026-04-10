@@ -856,25 +856,114 @@
   .delay-4 { animation-delay: 0.5s; }
 
   /* ── RESPONSIVE ── */
-  @media (max-width: 768px) {
-    nav { padding: 0 2rem; }
-    section { padding: 6.4rem 2rem; }
-    .site-header { padding: 0 2rem; }
-    .urgency-text { font-size: 1.1rem; }
-    .urgency-track { width: 14rem; }
-    .hero { padding: 10rem 2rem 8rem; }
-    .hero-inner { grid-template-columns: 1fr; }
-    .hero-photo { display: none; }
-    .hero-content { text-align: center; }
-    .deliverables-grid { grid-template-columns: 1fr 1fr; }
-    .qual-header, .qual-table { grid-template-columns: 1fr; }
-    .qual-col.yes { border-right: none; border-bottom: 1px solid var(--glass-border); }
-    .bio-inner { grid-template-columns: 1fr; gap: 4rem; }
-    .bio-photo-placeholder { aspect-ratio: 4/3; }
+
+  /* Tablet e mobile */
+  @media (max-width: 990px) {
     .offer-inner { grid-template-columns: 1fr; gap: 4rem; }
     .price-card { position: static; }
-    .hero-badges { gap: 1.6rem; }
+    .deliverables-grid { grid-template-columns: 1fr 1fr; }
+    .bio-inner { grid-template-columns: 1fr; gap: 3.2rem; }
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    section { padding: 6.4rem 2rem; }
+
+    /* Header */
+    .site-header { padding: 0 1.6rem; height: 5rem; }
+    .urgency-text { font-size: 1rem; }
+    .urgency-text strong { display: inline; }
+    .urgency-track { width: 8rem; }
+    .urgency-pct { display: none; }
+    .nav-cta { padding: 0.7rem 1.4rem; font-size: 1.1rem; }
+
+    /* Hero */
+    .hero { padding: 8rem 2rem 4rem; min-height: auto; }
+    .hero-inner { grid-template-columns: 1fr; gap: 3.2rem; }
+    .hero-photo { display: none; }
+    .hero-content { text-align: center; padding-bottom: 0; }
+    .hero-eyebrow {
+      font-size: 0.95rem;
+      padding: 0.5rem 1.2rem;
+      gap: 0.5rem;
+      letter-spacing: 1.2px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .badge-live { font-size: 0.95rem; padding: 0.4rem 1rem; }
+    .hero h1 { font-size: clamp(2.4rem, 6vw, 3.2rem); letter-spacing: -1.2px; margin-bottom: 2rem; }
+    .hero-sub { font-size: 1.5rem; margin-bottom: 3.2rem; }
+    .btn-primary { width: 100%; justify-content: center; padding: 1.6rem 3.2rem; font-size: 1.4rem; }
+    .hero-badges { gap: 1.2rem; }
+
+    /* Marquee */
+    .marquee-bar { height: 6rem; }
+    .marquee-item { font-size: 1.2rem; padding: 0 2.4rem; }
+
+    /* Capacidades */
+    .caps-grid { margin-top: 3.2rem; }
+    .cap-item { padding: 2rem 2rem; gap: 1.6rem; }
+    .cap-num { width: 4rem; height: 4rem; }
+    .cap-num svg { width: 18px; height: 18px; }
+    .cap-title { font-size: 1.5rem; }
+    .cap-desc { font-size: 1.3rem; }
+
+    /* Entregáveis */
+    .deliverables-grid { grid-template-columns: 1fr; gap: 2.4rem; }
+    .deliv-card h3 { font-size: 1.8rem; }
+    .deliv-card p { font-size: 1.3rem; }
+    .deliv-img { height: 16rem; }
+
+    /* Qualificação */
+    .qual-header, .qual-table { grid-template-columns: 1fr; }
+    .qual-col.yes { border-right: none; border-bottom: 1px solid var(--glass-border); }
+    .qual-col-label { font-size: 1rem; padding: 1rem 1.6rem; }
+    .qual-row { padding: 1.4rem 1.6rem; font-size: 1.3rem; }
+    .qual-header { margin-top: 3.2rem; }
+
+    /* Bio */
+    .bio-photo-placeholder { aspect-ratio: 4/3; }
+    .bio-title { font-size: 2.8rem; margin-bottom: 1.6rem; }
+    .bio-text { font-size: 1.4rem; }
+    .bio-stats { grid-template-columns: repeat(3, 1fr); }
+    .bio-stat { padding: 1.6rem 1rem; }
+    .bio-stat .num { font-size: 2.2rem; }
+    .bio-stat .lbl { font-size: 0.95rem; }
+
+    /* Oferta */
+    .offer-section .section-title { font-size: clamp(2.4rem, 5vw, 3rem); }
+    .price-card { padding: 3.2rem 2.4rem; }
+    .price-value { font-size: 4.8rem; }
+    .price-urgency { flex-direction: column; align-items: stretch; gap: 1rem; }
+    .price-urgency-text { text-align: center; }
+
+    /* FAQ */
+    .faq-question { padding: 2rem 2rem; font-size: 1.5rem; }
+    .faq-answer-inner { padding: 0 2rem 2rem; font-size: 1.3rem; }
+    .faq-icon { width: 2.8rem; height: 2.8rem; font-size: 1.4rem; }
+    .faq-list { margin-top: 3.2rem; }
+
+    /* Footer */
+    footer { padding: 3.2rem 2rem; }
+    footer p { font-size: 1.1rem; }
+  }
+
+  /* Mobile pequeno */
+  @media (max-width: 400px) {
+    .site-header { height: 4.8rem; padding: 0 1.2rem; }
+    .urgency-text { font-size: 0.9rem; }
+    .urgency-track { width: 5rem; }
+    .nav-cta { padding: 0.6rem 1.2rem; font-size: 1rem; }
+    .hero { padding: 7rem 1.6rem 3.2rem; }
+    .hero h1 { font-size: 2.2rem; }
+    .hero-sub { font-size: 1.4rem; }
+    .hero-eyebrow { font-size: 0.85rem; padding: 0.4rem 1rem; }
+    section { padding: 4.8rem 1.6rem; }
+    .section-title { font-size: 2.2rem; }
+    .cap-item { grid-template-columns: 1fr; text-align: center; }
+    .cap-num { margin: 0 auto; }
     .bio-stats { grid-template-columns: 1fr; }
+    .price-value { font-size: 4rem; }
   }
 </style>
 </head>
