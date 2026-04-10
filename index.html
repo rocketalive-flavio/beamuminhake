@@ -412,25 +412,16 @@
     text-align: center;
   }
 
-  /* Mapa Estratégico */
-  .mapa-estrategico {
-    margin-top: 5.6rem;
-    margin-bottom: 5.6rem;
-    text-align: left;
-  }
-  .mapa-title {
-    font-family: var(--font-heading);
-    font-size: clamp(2.2rem, 3vw, 3rem);
-    font-weight: 300;
-    color: var(--color-white);
-    margin-bottom: 3.2rem;
-    letter-spacing: -1.2px;
-    text-align: center;
+  /* ── MAPA ESTRATÉGICO ── */
+  .mapa-section {
+    background: var(--color-surface-dark);
   }
   .mapa-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
+    margin-top: 5.6rem;
+    counter-reset: nivel;
   }
   .mapa-card {
     background: var(--glass-bg);
@@ -439,71 +430,77 @@
     padding: 3.2rem 2.8rem;
     position: relative;
     transition: border-color 0.3s ease;
+    counter-increment: nivel;
   }
   .mapa-card:hover {
     border-color: rgba(193,153,106,0.3);
   }
   .mapa-card-level {
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
     color: var(--gold);
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.4rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .mapa-card-level::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(193,153,106,0.2);
   }
   .mapa-card-name {
     font-family: var(--font-heading);
-    font-size: 2rem;
+    font-size: 2.2rem;
     font-weight: 400;
     color: var(--color-white);
-    margin-bottom: 2rem;
+    margin-bottom: 2.4rem;
     letter-spacing: -0.5px;
     line-height: 1.2;
   }
+  .mapa-card-for {
+    font-size: 1.35rem;
+    color: var(--color-white);
+    font-weight: 400;
+    line-height: 1.55;
+    margin-bottom: 1.6rem;
+  }
   .mapa-card-detail {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     color: var(--color-grey);
     line-height: 1.65;
-    margin-bottom: 1.2rem;
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-  }
-  .mapa-card-detail strong {
-    color: var(--color-light);
-    font-weight: 500;
+    margin-bottom: 0.8rem;
+    padding-left: 1.6rem;
+    position: relative;
   }
   .mapa-card-detail::before {
     content: '';
-    width: 5px; height: 5px;
+    width: 4px; height: 4px;
     border-radius: 50%;
     background: var(--gold);
-    flex-shrink: 0;
-    margin-top: 7px;
+    position: absolute;
+    left: 0;
+    top: 8px;
   }
   .mapa-card-result {
-    font-size: 1.35rem;
-    color: var(--color-light);
-    line-height: 1.65;
-    margin-top: 2rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--glass-border);
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-  }
-  .mapa-card-result::before {
-    content: '→';
+    font-size: 1.3rem;
     color: var(--gold-mid);
-    flex-shrink: 0;
-    font-weight: 600;
+    line-height: 1.65;
+    margin-top: 2.4rem;
+    padding: 2rem;
+    background: rgba(193,153,106,0.06);
+    border-radius: 12px;
+    border: 1px solid rgba(193,153,106,0.12);
   }
 
   .deliverables-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
-    margin-top: 0;
+    margin-top: 5.6rem;
   }
   .deliv-card {
     background: var(--gradient-dark);
@@ -1233,43 +1230,46 @@
   </div>
 </section>
 
-<!-- SESSÃO 3 — ENTREGÁVEIS -->
+<!-- SESSÃO 3 — MAPA ESTRATÉGICO -->
+<section class="mapa-section">
+  <div class="container">
+    <div class="section-label">{ Os 3 níveis de contrato }</div>
+    <h2 class="section-title">Mapa Estratégico dos <em>Contratos</em></h2>
+    <div class="mapa-grid">
+
+      <div class="mapa-card">
+        <div class="mapa-card-level">Nível 1</div>
+        <div class="mapa-card-name">Básico</div>
+        <div class="mapa-card-for">Para quem está começando ou quer estruturar o mínimo obrigatório</div>
+        <div class="mapa-card-detail"><strong>Cliente ideal:</strong> prestadores de serviço em início de relação, projetos de escopo fixo</div>
+        <div class="mapa-card-result">Você nunca mais fecha um cliente sem proteção jurídica real e o cliente entende exatamente o que está contratando</div>
+      </div>
+
+      <div class="mapa-card">
+        <div class="mapa-card-level">Nível 2</div>
+        <div class="mapa-card-name">Intermediário</div>
+        <div class="mapa-card-for">Para quem atende relações contínuas ou de escopo variável</div>
+        <div class="mapa-card-detail"><strong>Cliente ideal:</strong> empresas e profissionais com demandas recorrentes</div>
+        <div class="mapa-card-result">Você passa a cobrar pelo risco real que está assumindo, não pelo número de horas trabalhadas</div>
+      </div>
+
+      <div class="mapa-card">
+        <div class="mapa-card-level">Nível 3</div>
+        <div class="mapa-card-name">Avançado</div>
+        <div class="mapa-card-for">Para quem quer atuar com advocacia consultiva de alto padrão</div>
+        <div class="mapa-card-detail"><strong>Cliente ideal:</strong> negócios em crescimento, contratos de alto valor</div>
+        <div class="mapa-card-result">Sua advocacia se posiciona como consultiva e estratégica e esse contrato se torna o argumento mais sólido para honorários de 6 dígitos</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SESSÃO 4 — ENTREGÁVEIS -->
 <section class="deliverables-section">
   <div class="container">
     <div class="section-label">{ Tudo que você vai receber }</div>
     <h2 class="section-title">O que você vai receber ao participar do <em>Workshop?</em></h2>
-
-    <div class="mapa-estrategico">
-      <h3 class="mapa-title">Mapa Estratégico dos Contratos</h3>
-      <div class="mapa-grid">
-
-        <div class="mapa-card">
-          <div class="mapa-card-level">Nível 1</div>
-          <div class="mapa-card-name">Básico</div>
-          <div class="mapa-card-detail">Para quem está começando ou quer estruturar o mínimo obrigatório</div>
-          <div class="mapa-card-detail"><strong>Tipo de cliente ideal:</strong> prestadores de serviço em início de relação, projetos de escopo fixo</div>
-          <div class="mapa-card-result">Você nunca mais fecha um cliente sem proteção jurídica real e o cliente entende exatamente o que está contratando</div>
-        </div>
-
-        <div class="mapa-card">
-          <div class="mapa-card-level">Nível 2</div>
-          <div class="mapa-card-name">Intermediário</div>
-          <div class="mapa-card-detail">Para quem atende relações contínuas ou de escopo variável</div>
-          <div class="mapa-card-detail"><strong>Tipo de cliente ideal:</strong> empresas e profissionais com demandas recorrentes</div>
-          <div class="mapa-card-result">Você passa a cobrar pelo risco real que está assumindo, não pelo número de horas trabalhadas</div>
-        </div>
-
-        <div class="mapa-card">
-          <div class="mapa-card-level">Nível 3</div>
-          <div class="mapa-card-name">Avançado</div>
-          <div class="mapa-card-detail">Para quem quer atuar com advocacia consultiva de alto padrão</div>
-          <div class="mapa-card-detail"><strong>Tipo de cliente ideal:</strong> negócios em crescimento, contratos de alto valor</div>
-          <div class="mapa-card-result">Sua advocacia se posiciona como consultiva e estratégica e esse contrato se torna o argumento mais sólido para honorários de 6 dígitos</div>
-        </div>
-
-      </div>
-    </div>
-
     <div class="deliverables-grid">
 
       <div class="deliv-card">
