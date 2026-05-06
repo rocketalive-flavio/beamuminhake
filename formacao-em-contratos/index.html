@@ -2860,7 +2860,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
   });
 
-  // Progress bar: 29/04 fixa em 90% → 30/04 escala de 90% para 99% → 01/05 00h overlay
+  // Progress bar: 06/05 escala de 70% para 100% ao longo do dia → 07/05 00h overlay
   (function(){
     const fill = document.getElementById('progress-fill');
     const pct = document.getElementById('progress-pct');
@@ -2868,19 +2868,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     if (!fill) return;
 
     // Brasília UTC-3
-    const phase1End = new Date('2026-04-29T23:59:59.999-03:00').getTime();
-    const phase2Start = new Date('2026-04-30T00:00:00-03:00').getTime();
-    const phase2End = new Date('2026-04-30T23:59:59.999-03:00').getTime();
+    const dayStart = new Date('2026-05-06T00:00:00-03:00').getTime();
+    const dayEnd = new Date('2026-05-06T23:59:59.999-03:00').getTime();
 
     function tick(){
       const now = Date.now();
       let value, txt;
-      if (now <= phase1End) {
-        value = 90;
-        txt = 'Inscrições abertas até 23h59 do dia 30/04';
-      } else if (now <= phase2End) {
-        const ratio = Math.min(1, Math.max(0, (now - phase2Start) / (phase2End - phase2Start)));
-        value = 90 + ratio * 9; // 90 → 99
+      if (now < dayStart) {
+        value = 70;
+        txt = 'Inscrições abertas até 23h59 do dia 06/05';
+      } else if (now <= dayEnd) {
+        const ratio = Math.min(1, Math.max(0, (now - dayStart) / (dayEnd - dayStart)));
+        value = 70 + ratio * 30; // 70 → 100
         txt = 'Últimas vagas — encerramento hoje às 23h59';
       } else {
         value = 100;
@@ -2894,10 +2893,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     setInterval(tick, 1000);
   })();
 
-  // Inscrições encerradas — bloqueia tela a partir de 01/05/2026 00h00 (Brasília UTC-3)
+  // Inscrições encerradas — bloqueia tela a partir de 07/05/2026 00h00 (Brasília UTC-3)
   // Para testar antes do horário, adicione ?preview-closed=1 na URL
   (function () {
-    const cutoff = new Date('2026-05-01T00:00:00-03:00').getTime();
+    const cutoff = new Date('2026-05-07T00:00:00-03:00').getTime();
     const params = new URLSearchParams(window.location.search);
     const previewClosed = params.get('preview-closed') === '1';
     const previewOpen = params.get('preview-open') === '1';
@@ -2938,12 +2937,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   })();
 </script>
 
-<!-- INSCRIÇÕES ENCERRADAS (overlay que bloqueia a tela a partir de 01/05/2026 00h00) -->
+<!-- INSCRIÇÕES ENCERRADAS (overlay que bloqueia a tela a partir de 07/05/2026 00h00) -->
 <div class="closed-overlay" id="closed-overlay" role="dialog" aria-modal="true" aria-labelledby="closed-title">
   <div class="closed-card">
     <div class="closed-eyebrow">Inscrições encerradas</div>
     <h2 id="closed-title">As vagas para a Formação em Contratos foram <em>encerradas</em>.</h2>
-    <p>As inscrições foram encerradas em <strong>30 de abril às 23h59</strong> e não recebem mais novas alunas neste lote.</p>
+    <p>As inscrições foram encerradas em <strong>06 de maio às 23h59</strong> e não recebem mais novas alunas neste lote.</p>
     <p>Para ser avisada da próxima turma, acompanhe a Beatriz no Instagram.</p>
     <div class="closed-actions">
       <a href="https://www.instagram.com/beatrizmuminhake/" target="_blank" rel="noopener" class="closed-cta">
