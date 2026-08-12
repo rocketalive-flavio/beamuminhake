@@ -647,6 +647,13 @@
   }
 
   /* ── OFERTA ── */
+  .offer-logo {
+    display: block;
+    width: 100%;
+    max-width: 42rem;
+    height: auto;
+    margin-bottom: 1.6rem;
+  }
   .offer-section {
     background: var(--color-surface-dark);
     position: relative;
@@ -849,6 +856,7 @@
     /* Oferta */
     .section-title { letter-spacing: -0.5px; }
     .offer-section .section-title { font-size: clamp(2.4rem, 5vw, 3rem); }
+    .offer-logo { max-width: 30rem; }
     .price-card { padding: 3.2rem 2.4rem; }
     .price-value { font-size: 4.8rem; }
 
@@ -1149,7 +1157,7 @@
     <div class="offer-inner">
       <div>
         <div class="section-label">{ Garanta sua vaga }</div>
-        <h2 class="section-title">Contratos Estratégicos<br>na <em>Prática</em></h2>
+        <img class="offer-logo" src="logo.png" alt="Imersão Contratos Estratégicos">
         <p style="color: var(--color-grey); font-size: 1.5rem; margin-top: 1.6rem; line-height: 1.7;">Uma oportunidade para descobrir uma nova forma de construir sua carreira, atuar de forma mais estratégica e entrar em um mercado que cresce a cada ano.</p>
         <ul class="offer-items">
           <li>3 níveis de contratos, do básico ao avançado</li>
